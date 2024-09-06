@@ -140,3 +140,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL="tree.User"
 
+
+LOGIN_URL = '/tree/login/'

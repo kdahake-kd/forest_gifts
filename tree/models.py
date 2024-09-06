@@ -23,7 +23,8 @@ class CollegeStudent(models.Model):
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     address = models.TextField()
-    college = models.ForeignKey(College, on_delete=models.SET_NULL, null=True)
+    # college = models.ForeignKey(College, on_delete=models.SET_NULL, null=True)
+    college=models.TextField()
 
 # Industry/organization-specific data
 class IndustryOrganization(models.Model):

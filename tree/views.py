@@ -9,6 +9,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required 
 
 User = get_user_model()
 
@@ -31,6 +32,7 @@ from django.contrib import messages
 from .models import Individual, CollegeStudent, IndustryOrganization
 
 # Individual User Plant View
+@login_required(login_url='/login/')
 def individual_plant(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -55,6 +57,7 @@ def individual_plant(request):
 
 
 # College Student Plant View
+@login_required(login_url='/tree/login/')
 def college_student_plant(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -73,7 +76,7 @@ def college_student_plant(request):
             )
             college_student.save()
             messages.success(request, 'Tree planted successfully as a College Student!')
-            return redirect('/')
+            return redirect('/tree/')
         else:
             messages.error(request, 'Please fill in all fields.')
     
@@ -81,6 +84,7 @@ def college_student_plant(request):
 
 
 # Industry/Organization User Plant View
+@login_required(login_url='login/')
 def industry_organization_plant(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -160,6 +164,6 @@ def login(request):
 def logout(request):
     auth_logout(request)
     messages.success(request, "Logged out successfully!")
-    return redirect('/')
+    return redirect('/tree/')
 
 
