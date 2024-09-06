@@ -1,0 +1,950 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Rubik:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300&family=Rubik:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Montserrat:wght@600&display=swap');
+:root {
+    --green: #0d9979;
+    --white: #FFFFFF;
+    --red: red;
+    --green2: green;
+    --green3: rgb(83, 188, 83);
+}
+
+* {
+    font-family: 'Abril Fatface';
+    font-family: 'AbrilFatface';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(.37, 1.14, .26, 1.24);
+}
+
+*::selection {
+    background: var(--green);
+    color: #ffffff;
+}
+
+html {
+
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+
+/*button1 usage*/
+
+.btn {
+    height: 3.5rem;
+    width: 15rem;
+    background: none;
+    outline: none;
+    border: .2rem solid var(--white);
+    color: var(--white);
+    font-size: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+.btn::before,
+.btn::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--green2);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(.37, 1.14, .26, 1.24);
+}
+
+.btn::before {
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.btn:hover:before {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.btn::after {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+}
+
+.btn:hover:after {
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+.btn:hover {
+    color: white;
+}
+
+
+/*button 3*/
+
+.btn3 {
+    height: 3.5rem;
+    width: 5rem;
+    background: none;
+    outline: black;
+    border: .2rem solid var(--green3);
+    color: green;
+    font-size: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+
+/*Button 4*/
+
+.btn4 {
+    height: 2.7rem;
+    width: 12rem;
+    background: none;
+    outline: none;
+    border: .2rem solid var(--white);
+    color: var(--white);
+    font-size: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+.btn4::before,
+.btn4::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--green2);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(.37, 1.14, .26, 1.24);
+}
+
+.btn4::before {
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.btn4:hover:before {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.btn4::after {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+}
+
+.btn4:hover:after {
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+.btn4:hover {
+    color: white;
+}
+
+
+/*header*/
+
+.heading {
+    text-align: center;
+    font-size: 10rem;
+    color: #ffffff00;
+    padding: 1rem;
+    padding-top: 7rem;
+}
+
+.heading i {
+    color: var(--green2);
+    font-size: 1rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: transparent;
+    box-shadow: transparent;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+}
+
+header .logo {
+    color: rgb(25, 95, 25);
+    font-size: 4rem;
+    font-family: 'Abril Fatface';
+    font-style: bold;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 30px;
+}
+
+header .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+header .navbar ul li {
+    display: inline-block;
+    margin: 0 16px;
+
+}
+
+header .navbar ul li a {
+    font-size: 1.5rem;
+    color: rgb(25, 95, 25);
+}
+
+header .navbar ul li a:hover {
+    color: var(--green);
+}
+
+header .fa-bars {
+    font-size: 3rem;
+    cursor: pointer;
+    display: none;
+}
+
+header .navbar ul li .user {
+    font: rgb(25, 95, 25);
+    font-size: 1.1rem;
+    font-family: 'Abril Fatface';
+}
+
+header .navbar ul li .user i {
+    font-size: 2rem;
+}
+
+
+/*home page*/
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/static/images/home-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.home .content {
+    text-align: center;
+    padding: 1rem;
+}
+
+.home .content h2 {
+    font-size: 5rem;
+    color: var(--white);
+    font-family: 'Abril Fatface';
+}
+
+.home .content h1 {
+    font-size: 10rem;
+    color: var(--white);
+}
+
+.home .content p {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Abril Fatface';
+    color: #fff;
+}
+
+
+/*About Section*/
+
+.about{
+    width: 100%;
+    padding: 100px 0px;
+    background-color: #4f7c36;
+}
+
+.about img{
+height:auto;
+width: 530px;
+}
+
+.about-text{
+    width: 550px;
+    font-size: 20px;
+    color: white;
+}
+
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+@media only screen and (max-width: 990px){
+    .about{
+        width: 100%;
+        padding: 100px 0;
+        background-color: #10801f;
+    }
+    
+    .about img{
+    max-width: 95%;
+    height: auto;
+    margin-left: 15px;
+}
+    
+    .about-text{
+        max-width: 95%;
+        margin-top: 30px;
+        margin-left: 15px;
+        margin-right: 30px;
+    }
+    .main{
+        width: 1130px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*VMG*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*SeedLink*/
+
+.seedlink {
+    background-color: #11551a;
+    max-height: 100rem;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+ 
+    background-size: cover;
+    background-position: center;
+}
+
+.seedlink .heading {
+    font-size: 30px;
+    position: relative;
+    align-items: center;
+    color: white;
+}
+
+.seedlink .heading .seed .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.seedlink .seed .content h3 {
+    text-align: center;
+    position: relative;
+    font-family: 'Abril Fatface';
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+}
+
+.seedlink .seed .content .p1 {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+}
+
+.seedlink .seed .content .p2 {
+    position: relative;
+    padding-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.seedlink .seed .content a {
+    position: relative;
+    align-items: center;
+    left: 700px;
+    right: 700px;
+    height: 1rem;
+    width: 7rem;
+}
+
+
+/*Our Work*/
+
+.ourwork {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    background-size: 100%;
+    background-position: 100%;
+    height: 750px;
+    display: block;
+    justify-content: space-evenly;
+}
+
+.ourwork .heading {
+    position: relative;
+    color: black;
+    font-size: 4rem;
+    font-family: 'Abril FatFace';
+    top: 0;
+    padding-top: -10px;
+    padding-bottom: 10px;
+}
+/*store*/
+
+.ourwork .container {
+    align-items: center; 
+    float: center;
+  }
+.ourwork .image{
+    height: 33%;
+    width: 33%;
+    display: block;
+    padding: 2px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+
+
+.ourwork p {
+    
+    align-items: center;
+    font-size: 2rem;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: black;
+}
+
+.ourwork p a {
+    font-family: 'Abril Fatface';
+    color: lightcyan;
+    font-size: 2rem;
+}
+
+/*Projects*/
+
+.project {
+    background: rgb(23, 70, 23);
+    min-height: 100vh;
+    backdrop-filter: blur(2px);
+}
+
+.project h1 {
+    color: var(--green3);
+    font-size: 30px;
+}
+
+.project .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.project .box-container .box {
+    flex: 1 1 30rem;
+    height: 22rem;
+    box-shadow: 0 .3rem .5rem #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem;
+}
+
+.project .box-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+/* Frames*/
+.service-26 {
+    font-family: 'Abril Fatface';
+    font-size: 20px;
+    background-size: cover;
+    padding: 2rem;
+  }
+  
+  
+  .service-26 .font-weight-medium {
+      font-weight: 500;
+  }
+  
+  .service-26 .badge {
+      line-height: 14px;
+  }
+  
+  .service-26 .badge-info {
+      background: #188ef4;
+  }
+  
+  .service-26 .wrap-service-26 .max-box {
+    max-width: 600px;
+  }
+  
+  .service-26 a {
+      text-decoration: none;
+  }
+  
+  
+  .service-26 .linking:hover {
+      color: #5ce831;
+  }
+/*different*/
+.serviceBox {
+    min-height: 20vh;
+    background-size: cover;
+
+}
+
+.heading-title
+{
+    color: var(--white);
+    font-size: 40px;
+	margin-bottom: 50px;
+}
+.serviceBox{
+    padding: 50px 30px 30px 90px;
+    background: #f8f8f8;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.serviceBox:hover{
+    background: #68be46;
+    color: #fff;
+}
+
+.serviceBox:after{
+    content: "";
+    display: block;
+    border-top: 500px solid #fff;
+    border-left: 500px solid;
+    margin-top: -55%;
+    margin-left: 100%;
+    opacity: 0;
+    position: absolute;
+    transform: scale(2);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.serviceBox:hover:after{
+    margin-left: 0;
+    opacity: 0.1;
+}
+
+.serviceBox .service-icon{
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition:all 0.3s ease-in-out 0s;
+}
+
+.serviceBox:hover .service-icon{
+    color: #ffffff;
+}
+
+.serviceBox .title{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    text-transform: capitalize;
+}
+
+.serviceBox .description{
+    font-size: 15px;
+    color: #000000;
+    line-height: 30px;
+    margin: 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.serviceBox:hover .description{
+    color: #fff;
+}
+
+@media only screen and (max-width: 990px){
+    .serviceBox{ margin-bottom: 15px; }
+}
+/*store*/
+.container {
+
+    align-items: center; 
+    float: center;
+  }
+  .image{
+      float: center;
+    padding: 5px;
+  }
+
+
+  /*i dont know*/
+/*Harshada*/
+.part {
+    background-color: #11551a;
+    backdrop-filter: blur(2px);
+    justify-content: center;
+}
+
+.part h1 {
+    color: var(--green3);
+    font-size: 30px;
+    text-align: center;
+}
+.part {
+    box-sizing:border-box;
+    margin-top: 5rem;
+    }
+    
+    .columnn{
+    float:left;
+    width:33.33%;
+    padding:20px;
+    }
+    
+    .roww::after{
+    content: "";
+    display: table;
+    clear:both;
+    }
+/*Donate */
+
+.section-container {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-container .columns {
+    flex: 0 0 auto;
+    width: 40%;
+}
+
+.section-container .columns.image {
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.section-container .columns.content .content-container {
+    padding: 70px 50px;
+}
+
+.section-container .columns.content .content-container p a {
+    font-family: 'Rubik';
+    color: #11551a;
+}
+
+.section-container .columns.content .content-container h5 {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.section-container .columns.content .content-container p {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+@media screen and (max-width:767px) {
+    .section-container {
+        flex-flow: row wrap;
+    }
+    .section-container .columns.image {
+        display: block;
+        order: 1;
+        width: 100%;
+        height: 250px;
+    }
+    .section-container .columns.content {
+        display: block;
+        order: 2;
+        width: 100%;
+    }
+    .section-container .columns.content .content-container {
+        padding: 20px 35px;
+    }
+    .section-container .columns.content .content-container h5 {
+        margin-bottom: 5px;
+    }
+}
+/*icons (store) plans*/
+.icons-container{
+    background-color: #11551a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    
+}
+
+.icons-container .icons{
+    width:30rem;
+    margin:2rem;
+    padding:2rem 1rem;
+    border-radius: .5rem;
+    border:.1rem solid rgba(0,0,0,.1);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    text-align:center;
+    background:#fff;
+}
+
+.icons-container .icons:hover{
+    transform:translateY(-1rem);
+}
+
+.icons-container .icons img{
+    height:6rem;
+    width:6rem;
+    margin:1rem 0;
+}
+
+.icons-container .icons h3{
+    font-size: 3rem;
+    color:var(--green2);
+}
+
+.icons-container .icons p{
+    font-size: 2rem;
+    color:#000000;
+    padding:1rem 0;
+}
+
+
+/*write to us*/
+
+.write .header1 {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(130, 194, 112);
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, 3);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1 rem 5rem;
+    width: 100%;
+    height: 200px;
+}
+
+.write .header1 p {
+    display: flex;
+    position: relative;
+    font-size: 3rem;
+    align-items: center;
+    text-align: center;
+    padding-left: 500px;
+    padding-right: 400px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/*Footer*/
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: white;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: var(--green3);
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+
+/*responsive*/
+
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+
+/*Media tags*/
+
+@media (max-width:768px) {
+    html {
+        font-size: 55%;
+    }
+    header .fa-bars {
+        display: block;
+    }
+    header .navbar {
+        position: fixed;
+        top: -100rem;
+        left: 0;
+        width: 100%;
+        border-top: .1rem solid #ccc;
+        opacity: 0;
+    }
+    header .navbar ul {
+        flex-flow: column;
+        padding: 2rem 0;
+        background-color: #FFFFFF;
+    }
+    header .navbar ul li {
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    header .navbar ul li a {
+        font-size: 3rem;
+        display: block;
+    }
+    .fa-times {
+        transform: rotate(180deg);
+    }
+    header .nav-toggle {
+        top: 6rem;
+        opacity: 1;
+    }
+    .home .content h1 {
+        font-size: 4rem;
+    }
+    .home .content p {
+        font-size: 4rem;
+    }
+    .about .heading {
+        font-size: 3rem;
+        max-width: 768px;
+        position: relative;
+    }
+    .about .heading .row .content {
+        font-size: 1.5rem;
+        max-width: 768px;
+        position: relative;
+    }
+}
+
