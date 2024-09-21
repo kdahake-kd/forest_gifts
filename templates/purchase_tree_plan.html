@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Tree Plan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Purchase Tree Plan</h2>
+        <div class="card">
+            <div class="card-header">
+                <h4>{{ plan.name }} - {{ plan.number_of_trees }} Trees</h4>
+            </div>
+            <div class="card-body">
+                <p><strong>Price:</strong> ₹{{ plan.price }}</p>
+                <p><strong>Number of Trees:</strong> {{ plan.number_of_trees }}</p>
+                <p><strong>Description:</strong> Purchase this plan to plant trees and contribute to the environment.</p>
+                
+                <h5>Payment</h5>
+                <button id="pay-button" class="btn btn-primary">Pay Now</button>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} <script>
+        $(document).ready(function(){
+            $("#pay-button").click(function(){
+                $.ajax({
+                    url: "{% url 'payment_success' %}",  // POST request to the same URL
+                    method: "POST",
+                    headers: { "X-CSRFToken": "{{ csrf_token }}" },  // Pass the CSRF token here
+                    success: function(order) {
+                        var options = {
+                            "key": order.razorpay_key_id,  // Razorpay Key ID
+                            "amount": order.amount,  // Amount in paise
+                            "currency": order.currency,
+                            "name": "Tree Plantation",
+                            "description": order.plan_name,
+                            "order_id": order.order_id,  // Order ID from Razorpay
+                            "handler": function (response){
+                                $.post("/payment-success/", {
+                                    order_id: order.order_id, 
+                                    payment_id: response.razorpay_payment_id,
+                                    csrfmiddlewaretoken: "{{ csrf_token }}"  // CSRF token in POST request
+                                }, function(data) {
+                                    window.location.href = "/payment-success/";
+                                });
+                            },
+                            "prefill": {
+                                "name": "{{ request.user.first_name }} {{ request.user.last_name }}",
+                                "email": "{{ request.user.email }}",
+                                "contact": "{{ request.user.username }}"
+                            },
+                            "theme": {
+                                "color": "#528FF0"
+                            }
+                        };
+        
+                        var rzp1 = new Razorpay(options);
+                        rzp1.open();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error creating Razorpay order: ", error);
+                    }
+                });
+            });
+        });
+    </script>  {% endcomment %}
+    <script>
+        $(document).ready(function() {
+            $("#pay-button").click(function() {
+                $.ajax({
+                    url: "",  // Use the current URL to create an order
+                    method: "POST",
+                    headers: { "X-CSRFToken": "{{ csrf_token }}" },
+                    success: function(order) {
+                        var options = {
+                            "key": order.razorpay_key_id,
+                            "amount": order.amount,
+                            "currency": order.currency,
+                            "name": "Tree Plantation",
+                            "description": order.plan_name,
+                            "order_id": order.order_id,
+                            "handler": function(response) {
+                                console.log("Payment response:", response); // Log the response from Razorpay
+                            
+                                $.ajax({
+                                    url: "/payment-success/",
+                                    method: "POST",
+                                    data: {
+                                        order_id: order.order_id,
+                                        payment_id: response.razorpay_payment_id,
+                                        csrfmiddlewaretoken: "{{ csrf_token }}"
+                                    },
+                                    success: function(data) {
+                                        console.log("Payment processing result:", data); // Log the result of the payment processing
+                                        window.location.href = "/payment-success/";
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.error("Payment processing error:", xhr.responseText);
+                                        alert("Payment processing failed! " + xhr.responseText);
+                                    }
+                                });
+                            },
+                            "prefill": {
+                                "name": "{{ request.user.first_name }} {{ request.user.last_name }}",
+                                "email": "{{ request.user.email }}",
+                                "contact": "{{ request.user.username }}"
+                            },
+                            "theme": {
+                                "color": "#528FF0"
+                            }
+                        };
+        
+                        var rzp1 = new Razorpay(options);
+                        rzp1.open();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error creating Razorpay order: ", error);
+                        alert("Order creation failed!");
+                    }
+                });
+            });
+        });
+        
+    </script>
+    
+</body>
+</html>

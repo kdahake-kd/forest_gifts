@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-klz6^-gh_qq(t!*1t53(1-he)bubme8xmnv2f(njd(8w54vg&k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -142,3 +142,9 @@ AUTH_USER_MODEL="tree.User"
 
 
 LOGIN_URL = '/tree/login/'
+SECRET_KEY = 'django-insecure-tqse)&n6(-2++1mc!sq=2*4mo&%n2vi@ce(zhb##b8_e+@12ud'
+
+# Razorpay settings
+RAZORPAY_KEY_ID = 'rzp_test_PL6TC1CmHX0BfJ'
+RAZORPAY_KEY_SECRET = 'DhWsXmNQjBLLGnVz0yhwqm4U'
+
